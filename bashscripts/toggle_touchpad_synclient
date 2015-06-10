@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# This script will toggle your touchpad on/off. Just assign
+# the appropriate key or shortcut on your window system.
+# I made it to be used on shxhkd
+
+state=`synclient -l | grep TouchpadOff | awk {'print $3'}`
+
+if [ ${state} = "1" ]
+then
+	# Toggle!
+	synclient TouchpadOff=0
+	notify-send "Touchpad is now ON"
+elif [ ${state} = "0" ]
+then
+	# Toggle!
+	synclient TouchpadOff=1
+	notify-send "Touchpad is now OFF"
+fi

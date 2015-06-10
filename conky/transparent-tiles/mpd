@@ -1,0 +1,71 @@
+# conky package by qaisar nawaz
+# Conky settings #
+background no
+update_interval 0.5
+double_buffer yes
+no_buffers yes
+
+# Window specifications #
+own_window yes
+own_window_type normal
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_title 
+own_window_colour bebebe
+own_window_argb_visual yes
+own_window_argb_value 205
+
+minimum_size 557 200
+maximum_width 557
+
+# Alignment #
+alignment tr
+gap_x 51
+gap_y 337
+
+border_inner_margin 6
+border_outer_margin 0
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftalpha 0
+xftfont Roboto Light:size=10
+
+override_utf8_locale yes
+
+imlib_cache_size 0
+
+# Color scheme #
+default_color 666666
+
+color1 0099CC
+color2 9933CC
+color3 669900
+color4 FF8800
+color5 CC0000
+color6 AAAAAA
+color7 DDDDDD
+
+
+TEXT
+${voffset -4}${color1}${font Roboto Light:size=12}Música$color$font
+${voffset -10}${color1}${color}${voffset -6}
+${voffset 1}${if_running mpd}${if_mpd_playing}
+${voffset -5}${offset 180}${color3}${font Roboto Bold:size=10}${mpd_status}$color$font
+${offset 180}${font WenQuanYi Zen Hei:size=10,weight:normal}${mpd_title 60}
+${offset 180}${alignc}${mpd_elapsed} ${mpd_bar 3,290} ${mpd_length}
+${offset 180}${mpd_artist 60}
+${offset 180}${mpd_album 60}
+${offset 180}${mpd_date}
+${offset 180}Faixa ${mpd_track}
+${offset 180}${mpd_bitrate} kbps
+${offset 180}Aleatório: ${mpd_random}
+${offset 180}Repetir: ${mpd_repeat}
+${execi 1 /home/user/.conky/mpdcover.sh}${image /home/user/.conky/tmp/conkyCover.png -p -5,10 -s 200x200}${voffset -50}
+$else${color1}${alignc}${voffset 40}${offset -25}${font Roboto Light:size=25}Parado$color$font $endif
+$else${color1}${alignc}${voffset 40}${offset -60}${font Roboto Light:size=25}Não Inicializado$color$font $endif${voffset -4}

@@ -1,0 +1,60 @@
+#! /bin/sh
+
+bspc config border_width        1
+bspc config window_gap         15
+
+bspc config split_ratio         0.50
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+
+bspc config left_padding                0
+bspc config right_padding               0
+bspc config bottom_padding              0
+#bspc config top_padding                 15
+
+bspc config focus_follows_pointer       false
+bspc config auto_alternate              false
+bspc config auto_cancel                 true
+bspc config top_padding                 30
+#bspc config normal_border_color         "#181512"
+#bspc config focused_border_color        "#A9A2A2"
+bspc config presel_border_color         "#AC4142"
+
+bspc config normal_border_color        "#151515"
+bspc config focused_border_color       "#303030"
+
+bspc config normal_frame_opacity        0.0
+bspc config focused_frame_opacity       0.05
+
+#bspc config focus_by_distance   true
+
+#bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d A B C D E F G H I J
+
+bspc rule -a Gimp floating=off follow=on
+bspc rule -a empathy floating=off follow=on
+bspc rule -a mplayer2 floating=on
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Skype floating=on follow=on
+bspc rule -a libreoffice floating=on
+bspc rule -a Conky sticky=on manage=off lower=on
+bspc rule -a nvidia-settings floating=on
+bspc rule -a steam floating=on
+bspc rule -a orage floating=on
+#bspc rule -a xterm floating=on
+
+# Lemon font on xfontsel
+xset +fp ~/.fonts && xset fp rehash
+
+# Wallpaper, compositor, top bar
+hsetroot -fill /home/lucas/Imagens/2d.jpg
+xsetroot -cursor_name left_ptr
+compton &
+gnome-screensaver &
+conky -c /home/lucas/.conky/topbar/barrc &
+mpd &
+mpdscribble
+mpdnotify start
+dunst &
+dropbox &

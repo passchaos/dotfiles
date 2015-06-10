@@ -1,0 +1,94 @@
+# Conky top bar by luksamuk
+# Conky settings #
+background yes
+update_interval 0.5
+double_buffer yes
+no_buffers yes
+
+# Window specifications #
+own_window yes
+own_window_type normal
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_title
+#own_window_colour 2b303b # theme 2
+#own_window_colour 151515 # theme 3
+own_window_colour 000000 # Completely dark
+own_window_argb_visual yes
+own_window_argb_value 229
+
+minimum_size 1876 10
+maximum_width 1876
+
+# Alignment #
+alignment tr
+gap_x 23
+gap_y 15
+
+border_inner_margin 5
+border_outer_margin 1
+override_utf8_locale yes
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders yes
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftalpha 0
+xftfont Roboto Light:size=10
+
+override_utf8_locale yes
+default_graph_size 10 8
+
+imlib_cache_size 0
+
+# Color scheme for border #
+#default_color 666666
+#default_color 181512 # theme 2
+#default_color c0c5ce # White, theme 3
+default_color  151515 # black, theme 3
+
+# Color guide
+# 0: White
+# 1: Blue
+# 2: Magenta
+# 3: Green
+# 4: Yellow
+# 5: Red
+# 6: Dark Grey
+# 7: Light Grey
+
+# Theme 1
+color0 c0c5ce
+#color1 0099CC
+#color2 9933CC
+#color3 669900
+#color4 FF8800
+#color5 CC0000
+#color6 AAAAAA
+#color7 DDDDDD
+
+# Theme 2
+#color0 999999
+#color1 668899
+#color2 804082
+#color3 669901
+#color4 999934
+#color5 820000
+color6 AAAAAA
+color7 DDDDDD
+
+# Theme 3
+color1 7DC1Cf
+color2 9B64FB
+color3 B8D68C
+color4 E1AA5D
+color5 E84F4F
+
+# For arch icon image, use
+# ${offset 35}${image /home/lucas/.conky/topbar/arch.png -p 0,-1 -s 29x29}
+
+TEXT
+${voffset 0}${font Tewi:size=9}${color3}${nodename}${color1} >> ${color4}${exec bspc query --desktops --desktop focused}${if_mpd_playing}${color5} | ${color0}⭯${if_match "${mpd_status}"=="Paused"} || ${else} >  ${endif}${color3}${mpd_artist}${color0}: ${color4}${mpd_album} ${color0}- ${color1}${mpd_title}${else}${endif}${alignr -35}${color1}WiFi ${color0}${wireless_link_qual_perc wlp3s0}% ${color2}U ${color4}${upspeedgraph wlp3s0 10, 25} ${color0}/ ${totalup wlp3s0}${color5} | ${color2}D ${color3}${downspeedgraph wlp3s0 10, 25} ${color0}/ ${totaldown wlp3s0} ${color5} | ${color1}CPU ${color2}${cpugraph 10, 50}${offset -45}${color0}${freq_g}GHz ${color5} | ${color1}⭦ ${color0}${memperc}%${color5} | ${color1}T ${color0}${acpitemp}°C${color5} | ${color1}⭨ ${color0}${battery BAT0} ${color5}| ${color1} ${color0}${exec cat /proc/acpi/bbswitch | awk '{print $2}'} ${color5}| ${color1}V ${color0}${if_match "${exec amixer get Master | grep "Front Left:" | awk '{print $6}'}"=="[on]"}${exec amixer -c 0 get Master -M | grep -oE "[[:digit:]]*%"} ${else}MUDO${endif} ${color5}| ${color1}⭧ ${color0}${exec date "+%a, %d %b %y, %T"}

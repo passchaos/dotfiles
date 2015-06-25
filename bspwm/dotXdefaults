@@ -1,27 +1,24 @@
 Xft.antialias: false
+Xft.autohint: 0
+Xft.dpi: 90
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
 
-
-!!! urxvt configuration
-! Phallus' lemon font
-!urxvt*font:         xft:lemon:pixelsize=9:antialias=false
-!urxvt*boldFont:     xft:lemon:pixelsize=9:antialias=false
-
-! Terminess Powerline font
+urxvt*font:         xft:lemon:pixelsize=9:antialias=false
+urxvt*boldFont:     xft:lemon:pixelsize=9:antialias=false
 !urxvt*font:         xft:Terminess\ Powerline:pixelsize=10,xft:Fixed:antialias=false:style=ja:pixelsize=9
 !urxvt*boldFont:     xft:Terminess\ Powerline:pixelsize=10,xft:Fixed:antialias=false:style=ja:pixelsize=9
+!urxvt*font:         xft:Tewi:pixelsize=9
+!urxvt*boldFont:     xft:Tewi:pixelsize=9
 
-! Tewi font
-urxvt*font:         xft:Tewi:pixelsize=9
-urxvt*boldFont:     xft:Tewi:pixelsize=9
-
-! Scrollbar, geometry and title
 urxvt*scrollBar: false
 urxvt*geometry: 120x26
 urxvt*title: Terminal
 
-! Cursor blink and internal border
 urxvt*cursorBlink: true
-urxvt*internalBorder: 4
+!urxvt*internalBorder: 4
 
 ! Misc
 urxvt*urlLauncher: google-chrome-stable
@@ -37,7 +34,8 @@ URxvt*depth: 32
 
 URxvt.foreground: #D7D0C7
 !URxvt.background: [95]#151515
-URxvt.background: [95]#000000
+!URxvt.background: [80]#000000
+URxvt.background: #000000
 ! Black
 URxvt.color0:  #303030
 URxvt.color8:  #404040
@@ -65,14 +63,16 @@ URxvt.color15: #dddddd
 
 
 !XTerm
-! I only gave Xterm Terminess Powerline support.
-! Change the font to your taste
 xterm*reverseVideo: on
-xterm*faceName: xft:Terminess\ Powerline:pixelsize=10
-xterm*boldFont: xft:Terminess\ Powerline:pixelsize=10
+!xterm*faceName: xft:Terminess\ Powerline:pixelsize=10
+!xterm*boldFont: xft:Terminess\ Powerline:pixelsize=10
+!xterm*faceName: xft:lemon:pixelsize=9:antialias=false
+!xterm*boldFont: xft:lemon:pixelsize=9:antialias=false
+xterm*faceName: xft:Tewi:pixelsize=9
+xterm*boldFont: xft:Tewi:pixelsize=9
 xterm*faceSize: 10
 xterm*saveLines: 16384
 xterm*scrollBar: true
+xterm*vt100*geometry: 120x26
 
-! That's a KDE Plasma 5 cursor theme. Edit as needed
 Xcursor.theme: Breeze_cursors

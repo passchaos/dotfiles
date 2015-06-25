@@ -1,0 +1,12 @@
+theme panel3
+
+mbutton1 use drag
+mbutton2 kill
+mbutton3
+launchbar
+    exec steam
+	    icon /usr/share/pixmaps/steam.png
+    exec optirun nvidia-settings -c :8
+        icon /usr/share/pixmaps/nvidia-settings.png
+preferred_alternatives
+pager_current_monitor_only

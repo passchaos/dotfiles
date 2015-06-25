@@ -94,9 +94,10 @@ super + Return
 super + x
 	urxvt
 
+# Use xfontsel when in doubt
 super + space
-#	dmenu_run -fn "-*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-*"
-	dmenu_run -fn "-*-terminus-medium-r-normal-*-*-*-*-*-*-*-*-*" -nb '#000000' -nf '#c0c5ce' -sb '#42717B' -l 5 -p "Executar: " -b
+	dmenu_run -fn "-*-lemon-*-*-*-*-*-*-*-*-*-*-*-*" -nb '#000000' -nf '#ffffff' -sb '#42717B' -l 0 -p "Executar: " 
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -115,11 +116,11 @@ ctrl + alt + l
 
 # Raises volume
 XF86AudioRaiseVolume
-    amixer -D pulse sset Master 2%+
+    amixer -D pulse sset Master 2%+ && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'lemon 9' -x 1670 -y 30
 
 # Lowers volume
 XF86AudioLowerVolume
-    amixer -D pulse set Master 2%-
+    amixer -D pulse set Master 2%- && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'lemon 9' -x 1670 -y 30
 
 # Mutes
 XF86AudioMute

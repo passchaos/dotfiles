@@ -1,0 +1,99 @@
+theme
+        name obsidianpanel
+        author luksamuk
+
+panel
+        position top
+        background tile.png
+		align left
+		width 60%
+		
+desktop_switcher
+        idle
+                left_corner tile.png
+                left tile.png
+                center tile.png
+                right tile.png
+                right_corner >>.png
+                font lemon 8
+                        color 255 255 255
+                        offset 0 0
+                        align center
+
+        pressed
+                left_corner active.png
+                left active.png
+                center tile.png
+                right tile.png
+                right_corner >>.png
+                font lemon 8
+                        color 66 113 123
+                        offset 0 0
+                        align center
+
+launchbar
+        icon_size 10 10
+
+empty 3
+
+taskbar
+        idle
+                left tile.png
+                center tile.png
+                right tile.png
+                font lemon 8
+                        color 120 120 120
+                        offset 0 0
+                        align left
+
+        idle_highlight
+                left tile.png
+                center tile.png
+                right tile.png
+                font lemon 8
+                        color 66 113 123
+                        offset 0 0
+                        align left
+
+        pressed
+                left tile.png
+                center tile.png
+                right tile.png
+                font lemon 8
+                        color 255 255 255
+                        offset 0 0
+                        align left
+
+        pressed_highlight
+                left tile.png
+                center tile.png
+                right tile.png
+                font lemon 8
+                        color 225 170 93
+                        offset 0 0
+                        align left
+
+        task_max_width 200
+
+empty 2
+
+systray
+        icon_size 10 10
+        icon_spacing 2
+        icon_offset 0 0
+
+empty 2
+
+clock
+        background
+                left tile.png
+                center tile.png
+                right tile.png
+        font lemon 8
+                color 255 255 255
+                offset 0 0
+                align center
+
+        time_format  >> %a, %d %b %y, %T
+
+empty 2

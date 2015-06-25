@@ -1,7 +1,7 @@
-#! /bin/sh
+#!/bin/sh
 
-bspc config border_width        1
-bspc config window_gap         15
+bspc config border_width        2
+bspc config window_gap         10
 
 bspc config split_ratio         0.50
 bspc config borderless_monocle  true
@@ -10,12 +10,12 @@ bspc config gapless_monocle     true
 bspc config left_padding                0
 bspc config right_padding               0
 bspc config bottom_padding              0
-#bspc config top_padding                 15
+bspc config top_padding                 15
 
 bspc config focus_follows_pointer       false
 bspc config auto_alternate              false
 bspc config auto_cancel                 true
-bspc config top_padding                 30
+#bspc config top_padding                 30
 #bspc config normal_border_color         "#181512"
 #bspc config focused_border_color        "#A9A2A2"
 bspc config presel_border_color         "#AC4142"
@@ -42,19 +42,29 @@ bspc rule -a Conky sticky=on manage=off lower=on
 bspc rule -a nvidia-settings floating=on
 bspc rule -a steam floating=on
 bspc rule -a orage floating=on
+bspc rule -a pamac-updater floating=on
+bspc rule -a transmission-gtk floating=on
 #bspc rule -a xterm floating=on
 
 # Lemon font on xfontsel
 xset +fp ~/.fonts && xset fp rehash
 
 # Wallpaper, compositor, top bar
-hsetroot -fill /home/lucas/Imagens/2d.jpg
+hsetroot -fill /home/lucas/Imagens/bridge.jpg
 xsetroot -cursor_name left_ptr
 compton &
 gnome-screensaver &
-conky -c /home/lucas/.conky/topbar/barrc &
+#conky -c /home/lucas/.conky/topbar/barrc &
+bmpanel2 &
 mpd &
-mpdscribble
+mpdscribble &
 mpdnotify start
 dunst &
 dropbox &
+# Polkit agent, straight from gnome.
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# System tray icons and etc
+#volwheel &
+nm-applet &
+pamac-tray &

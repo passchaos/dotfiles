@@ -124,7 +124,7 @@ XF86AudioLowerVolume
 
 # Mutes
 XF86AudioMute
-    amixer set Master toggle
+    amixer set Master toggle && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'lemon 9' -x 1670 -y 30
 
 # Brightness goes up
 XF86MonBrightnessUp

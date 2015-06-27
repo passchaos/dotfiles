@@ -3,7 +3,7 @@ IMPORTANT ASPECTS OF THE SYSTEM WHEN USING THIS
 
 0. Replace everything that has a "dot" on the front with a... well, a dot. All folders and files are also relative to your home folder.
 1. YOU NEED TO EDIT THE CONFIGURATION FILES. EACH ONE OF THEM. BY HAND. You don't want your system to behave unexpectedly, right?
-2. There are some applications which I recommend installing, after bspwm, sxhkd and dmenu. They are:
+2. There are some applications which I recommend installing, after bspwm, sxhkd and dmenu-xft (AUR). They are:
 - urxvt. Because that's the best terminal you can ever get.
 - Conky (for top bar. I was lazy enough to not learn how to use lemonbar), OR...
 - bmpanel2 (Git version specially) if you want an actual panel with indicators support.

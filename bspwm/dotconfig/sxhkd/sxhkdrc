@@ -97,7 +97,7 @@ super + x
 # Use xfontsel if you're using vanilla dmenu.
 # Also, dmenu-xft package is recommended and can be installed from AUR.
 super + space
-	dmenu_run -fn lemon-10 -nb '#000000' -nf '#ffffff' -sb '#42717B' -l 0 -p "Executar: " 
+	dmenu_run -fn lemon-8 -nb '#000000' -nf '#ffffff' -sb '#42717B' -l 0 -p "Executar: " 
 
 # make sxhkd reload its configuration files:
 super + Escape

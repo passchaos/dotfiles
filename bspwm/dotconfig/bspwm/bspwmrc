@@ -44,6 +44,9 @@ bspc rule -a steam floating=on
 bspc rule -a orage floating=on
 bspc rule -a pamac-updater floating=on
 bspc rule -a transmission-gtk floating=on
+bspc rule -a Steam floating=on
+bspc rule -a Wine floating=on
+bspc rule -a Pidgin floating=on
 #bspc rule -a xterm floating=on
 
 # Lemon font on xfontsel

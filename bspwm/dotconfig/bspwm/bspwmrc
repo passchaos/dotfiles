@@ -53,7 +53,7 @@ bspc rule -a Pidgin floating=on
 xset +fp ~/.fonts && xset fp rehash
 
 # Wallpaper, compositor, top bar
-hsetroot -fill /home/lucas/Imagens/bridge.jpg
+hsetroot -fill /home/lucas/Imagens/TI.jpg
 xsetroot -cursor_name left_ptr
 compton &
 gnome-screensaver &
@@ -63,6 +63,7 @@ mpd &
 mpdscribble &
 mpdnotify start
 dunst &
+batterymon &
 dropbox &
 # Polkit agent, straight from gnome.
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

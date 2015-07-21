@@ -8,12 +8,13 @@ IMPORTANT ASPECTS OF THE SYSTEM WHEN USING THIS
 - Conky (for top bar. I was lazy enough to not learn how to use lemonbar), OR...
 - bmpanel2 (Git version specially) if you want an actual panel with indicators support.
 - Ranger, if you need a terminal file manager. Thunar, if you need a graphical manager. Both are excellent. I did not change Ranger's initial settings, so I don't have a config file to put here.
+- batterymon (batterymon-clone + python2-notify), for a quick battery indicator
 - dunst, for lightweight notifications support.
 - dzvol (grab the code on https://github.com/allevaton/dzvol) for volume control. You can also use dvol by bruenig (code is at https://bbs.archlinux.org/viewtopic.php?id=46608), though I never tested it.
 - lxappearance so you can change things such as icon theme, GTK theme and etc.
 - Screenfetch, because, if you found this repo, you're most likely a ricing-addict hipster like me.
 - If you are REALLY going to use bspwm everyday, then you must definitely look into wifi-menu for configuring your wifi network, if you haven't already installed it. Keep in mind that, if you were using a graphical DE before, you'll probably need to disable NetworkManager.service and enable netctl.
-- mpd + mpc + ncmpcpp. Because you like music. Don't you? I've included my own configuration files on this repo, but YOU MUST ADAPT it to your own computer, as configurations for each program can vary, such as your audio manager (pure ALSA or Pulse, etc). Also, ENABLE your PulseAudio equalizer support, or REMOVE the mixer_type property on mpdconf.
+- mpd + mpc + ncmpcpp. Because you like music. Don't you? I've included my own configuration files on this repo, but YOU MUST ADAPT it to your own computer, as configurations for each program can vary, such as your audio manager (pure ALSA or Pulse, etc). Also, ENABLE your PulseAudio equalizer support, or REMOVE the mixer-type property on mpdconf.
 - Also on mpd, you need to create a few files inside the dotmpd folder, which I have actually provided. They are blank, so make sure to only open mpd after you configured your library location appropriately.
 - mpdscribble: For last.fm / libre.fm scrobbling. Check the configuration file.
 

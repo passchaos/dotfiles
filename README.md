@@ -18,4 +18,9 @@ Index:
 
     Some extra, heavily-modified versions of conky made by myself (which I do not take ownership).
 
+- powerline
+	
+	Some modifications I made to Agnoster theme and vimrc to enable powerline support - mostly related to the usage of phallus' lemon font.
+	Tip: lemon font might conflict with Google's Lemon font, so you might need to uninstall it.
+
 Everything on this repository is distributed under the WTFPL License, unless the file provides its own license type.

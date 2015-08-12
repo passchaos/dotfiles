@@ -1,0 +1,36 @@
+" Syntax properties
+syntax on
+set mouse=a
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set smartindent
+set autoindent
+
+" Shortcuts
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
+" Color and fancyness
+colorscheme molokai
+"set t_Co=256
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+let g:Powerline_symbols = "fancy"
+set number
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+
+let g:airline_theme = 'powerlineish'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline_powerline_fonts = 1
+
+" Separators for lemon font
+let g:airline_left_sep='⮀'
+let g:airline_right_sep='⮂'

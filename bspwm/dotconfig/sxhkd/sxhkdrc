@@ -105,12 +105,12 @@ super + Escape
 
 # Resize floating windows
 super + alt + {Left,Right,Up,Down}
-    xdo move {-x -30,-x +30,-y -30,-y +30
+    xdo move {-x -30,-x +30,-y -30,-y +30}
 
 # Lock screen
 ctrl + alt + l
-    gnome-screensaver-command -l
-#     dm-tool lock
+#    gnome-screensaver-command -l
+     dm-tool lock
 #
 # System
 #

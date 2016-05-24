@@ -1,3 +1,6 @@
+" Julia commands enabling
+filetype plugin on
+
 " Syntax properties
 syntax on
 set mouse=a
@@ -32,5 +35,5 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
 
 " Separators for lemon font
-let g:airline_left_sep='⮀'
-let g:airline_right_sep='⮂'
+"let g:airline_left_sep='⮀'
+"let g:airline_right_sep='⮂'

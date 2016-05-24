@@ -28,7 +28,6 @@ bspc config focused_frame_opacity       0.05
 
 #bspc config focus_by_distance   true
 
-#bspc monitor -d I II III IV V VI VII VIII IX X
 bspc monitor -d A B C D E F G H I J
 
 bspc rule -a Gimp floating=off follow=on
@@ -53,22 +52,20 @@ bspc rule -a Pidgin floating=on
 xset +fp ~/.fonts && xset fp rehash
 
 # Wallpaper, compositor, top bar
-hsetroot -fill /home/lucas/Imagens/TI.jpg
+#hsetroot -fill /home/lucas/Imagens/TI.jpg
 xsetroot -cursor_name left_ptr
 compton &
-gnome-screensaver &
-#conky -c /home/lucas/.conky/topbar/barrc &
+#gnome-screensaver &
 bmpanel2 &
-mpd &
-mpdscribble &
-mpdnotify start
+#mpd &
+#mpdscribble &
+#mpdnotify start
 dunst &
 batterymon &
-dropbox &
+#dropbox &
 # Polkit agent, straight from gnome.
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # System tray icons and etc
-#volwheel &
-nm-applet &
-pamac-tray &
+#nm-applet &
+#pamac-tray &

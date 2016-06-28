@@ -1,0 +1,51 @@
+Section "Module"
+    Load "modesetting"
+EndSection
+
+Section "Device"
+    Identifier "nvidia"
+	Driver "nvidia"
+	BusID "PCI:1:0:0"
+	Option "AllowEmptyInitialConfiguration"
+	Option "NoLogo" "True"
+	Option "CustomEDID" "CRT-0:/sys/class/drm/card0-LVDS-1/edid"
+	Option "IgnoreEDID" "false"
+	Option "UseEDID" "true"
+	Option "Coolbits" "12"
+	# Fixed PowerMizer
+	Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x2; PowerMizerDefault=0x2; PowerMizerDefaultAC=0x2"
+EndSection
+
+# I get intel crashes, so...
+Section "Device"
+    Identifier  "intel"
+	Driver      "modesetting"
+	BusID       "PCI:0:2:0"
+	Option      "AccelMethod"  "sna"
+	#Option      "TearFree" "True"
+	#Option      "Tiling" "True"
+	Option      "SwapbuffersWait" "True"
+EndSection
+
+
+# Blank screen...
+# Check /var/log/xorg.conf for deleted screen.
+Section "ServerLayout"
+    Identifier "layout"
+    Screen 1 "nvidia"
+    Inactive "intel"
+EndSection
+
+
+# Screens (Legacy)
+Section "Screen"
+	Identifier "intel"
+	Device "intel"
+EndSection
+
+Section "Screen"
+	Identifier "nvidia"
+	Device "nvidia"
+	Option         "nvidiaXineramaInfoOrder" "DFP-0"
+	Option "metamodes" "VGA-0: nvidia-auto-select +0+0, HDMI-0: 1280x720 +1920+0 {viewportin=1280x720, viewportout=1160x660+60+32}"
+EndSection

@@ -123,15 +123,15 @@ ctrl + alt + l
 
 # Raises volume
 XF86AudioRaiseVolume
-    amixer -D pulse sset Master 2%+ && dzvol -bg '#2F1E2E' -fg '#A39E90' -fn 'Terminess Powerline 9' -x 1670 -y 30
+    amixer -D pulse sset Master 2%+ && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'Terminess Powerline 9' -x 1670 -y 30
 
 # Lowers volume
 XF86AudioLowerVolume
-    amixer -D pulse set Master 2%- && dzvol -bg '#2F1E2E' -fg '#A39E90' -fn 'Terminess Powerline 9' -x 1670 -y 30
+    amixer -D pulse set Master 2%- && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'Terminess Powerline 9' -x 1670 -y 30
 
 # Mutes
 XF86AudioMute
-    amixer set Master toggle && dzvol -bg '#2F1E2E' -fg '#A39E90' -fn 'Terminess Powerline 9' -x 1670 -y 30
+    amixer set Master toggle && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'Terminess Powerline 9' -x 1670 -y 30
 
 # Brightness goes up
 XF86MonBrightnessUp

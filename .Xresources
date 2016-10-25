@@ -1,0 +1,197 @@
+! Font config
+! ============
+Xft.antialias: true
+Xft.autohint: 1
+Xft.dpi: 110
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
+! Cursor theme
+! =============
+Xcursor.theme: Windows8-cursor
+
+! Color theme: Luksamuks (inactive)
+!=============
+! black
+!#define _color0  #000000
+!#define _color8  #373B41
+! red
+!#define _color1  #A54242
+!#define _color9  #CC6666
+! green
+!#define _color2  #8C9440
+!#define _color10 #B5BD68
+! yellow
+!#define _color3  #DE935F
+!#define _color11 #F0C674
+! blue
+!#define _color4  #5F819D
+!#define _color12 #81A2BE
+! magenta
+!#define _color5  #85678F
+!#define _color13 #B294BB
+! cyan
+!#define _color6  #5E8D87
+!#define _color14 #8ABEB7
+! white
+!#define _color7  #FFFFFF
+!#define _color15 #C5C8C6 
+!BG, FG, Cursor
+#define _colorBG #000000
+#define _colorFG #C5C8C6
+#define _colorCC #FFFFFF
+
+
+
+! Color theme: Wine
+!=============
+! black
+#define _color0  #2F1E2E
+#define _color8  #776E71
+! red
+#define _color1  #EF6155
+#define _color9  #EF6155
+! green
+#define _color2  #48B685
+#define _color10 #48B685
+! yellow
+#define _color3  #FEC418
+#define _color11 #FEC418
+! blue
+#define _color4  #06B6EF
+#define _color12 #06B6EF
+! magenta
+#define _color5  #815BA4
+#define _color13 #815BA4
+! cyan
+#define _color6  #5BC4BF
+#define _color14 #5BC4BF
+! white
+#define _color7  #A39E9B
+#define _color15 #E7E9DB 
+!BG, FG, Cursor
+!#define _colorBG #2F1E2E
+!#define _colorFG #A39E9B
+!#define _colorCC #A39E9B
+
+
+
+
+! URxvt
+! ======
+!URxvt*font:           xft:GohuFont:regular:size=10:antialias=true
+!URxvt*boldFont:       xft:GohuFont:regular:size=10:antialias=true
+URxvt*font:           xft:Terminess\ Powerline:regular:size=9:antialias=true
+URxvt*boldFont:       xft:Terminess\ Powerline:regular:size=9:antialias=true
+!URxvt*font:           xft:ProggyCleanTTSZ:regular:size=12:antialias=false
+!URxvt*boldFont:       xft:ProggyCleanTTSZ:regular:size=12:antialias=false
+urxvt*scrollBar:      false
+urxvt*geometry:       90x25
+urxvt*title:          Terminal
+urxvt*cursorBlink:    true
+urxvt*urlLauncher:    opera
+URxvt*pointerBlank:   True
+URxvt*loginShell:     True
+URxvt*internalBorder: 0
+URxvt*buffered:       true
+! Key bindings and perl extensions
+URxvt.perl-ext-common:        default,clipboard,fullscreen
+URxvt.iso14755:               False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.F11:             perl:fullscreen:switch
+! Colors
+URxvt*depth: 32
+!URxvt.transparent: true
+!URxvt.shading:     20
+URxvt*background:  [90]_colorBG
+URxvt*foreground:  _colorFG
+URxvt*cursorColor: _colorCC
+URxvt*color0:      _color0
+URxvt*color8:      _color8
+URxvt*color1:      _color1
+URxvt*color9:      _color9
+URxvt*color2:      _color2
+URxvt*color10:     _color10
+URxvt*color3:      _color3
+URxvt*color11:     _color11
+URxvt*color4:      _color4
+URxvt*color12:     _color12
+URxvt*color5:      _color5
+URxvt*color13:     _color13
+URxvt*color6:      _color6
+URxvt*color14:     _color14
+URxvt*color7:      _color7
+URxvt*color15:     _color15
+
+! XTerm
+! ======
+!XTerm*faceName:       xft:Gohufont:regular:size=10:antialias=true
+!XTerm*boldFont:       xft:Gohufont:regular:size=10:antialias=true
+!XTerm*faceName:       xft:ProggyCleanTTSZ:regular:size=12:antialias=false
+!XTerm*boldFont:       xft:ProggyCleanTTSZ:regular:size=12:antialias=false
+XTerm*faceName:       xft:Terminess\ Powerline:regular:size=9:antialias=false
+XTerm*boldFont:       xft:Terminess\ Powerline:regular:size=9:antialias=false
+XTerm*allowBoldFonts: false
+XTerm*saveLines:      16384
+XTerm*scrollBar:      true
+XTerm*rightScrollBar: true
+XTerm*multiScroll:    on
+XTerm*jumpScroll:     on
+XTerm*geometry: 90x25+15+30
+! Colors
+XTerm*background:  _colorBG
+XTerm*foreground:  _colorFG
+XTerm*cursorColor: _colorCC
+XTerm*color0:      _color0
+XTerm*color8:      _color8
+XTerm*color1:      _color1
+XTerm*color9:      _color9
+XTerm*color2:      _color2
+XTerm*color10:     _color10
+XTerm*color3:      _color3
+XTerm*color11:     _color11
+XTerm*color4:      _color4
+XTerm*color12:     _color12
+XTerm*color5:      _color5
+XTerm*color13:     _color13
+XTerm*color6:      _color6
+XTerm*color14:     _color14
+XTerm*color7:      _color7
+XTerm*color15:     _color15
+
+
+
+! UXTerm
+! ======
+UXTerm*faceName:       xft:ProggyCleanTTSZ:regular:size=12:antialias=false
+UXTerm*boldFont:       xft:ProggyCleanTTSZ:regular:size=12:antialias=false
+UXTerm*allowBoldFonts: false
+UXTerm*saveLines:      16384
+UXTerm*scrollBar:      true
+UXTerm*rightScrollBar: true
+UXTerm*multiScroll:    on
+UXTerm*jumpScroll:     on
+UXTerm*vt100*geometry: 90x25
+! Colors
+UXTerm*background:  _colorBG
+UXTerm*foreground:  _colorFG
+UXTerm*cursorColor: _colorCC
+UXTerm*color0:      _color0
+UXTerm*color8:      _color8
+UXTerm*color1:      _color1
+UXTerm*color9:      _color9
+UXTerm*color2:      _color2
+UXTerm*color10:     _color10
+UXTerm*color3:      _color3
+UXTerm*color11:     _color11
+UXTerm*color4:      _color4
+UXTerm*color12:     _color12
+UXTerm*color5:      _color5
+UXTerm*color13:     _color13
+UXTerm*color6:      _color6
+UXTerm*color14:     _color14
+UXTerm*color7:      _color7
+UXTerm*color15:     _color15

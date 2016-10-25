@@ -1,0 +1,30 @@
+music_directory "/home/lucas/Music"
+playlist_directory "/home/lucas/.mpd/playlists"
+db_file "/home/lucas/.mpd/db"
+log_file "/home/lucas/.mpd/log"
+pid_file "/home/lucas/.mpd/pid"
+state_file "/home/lucas/.mpd/state"
+#bind_to_address "localhost"
+mixer_type "software"
+audio_output {
+	type "pulse"
+	name "MPD Audio"
+	format "48000:16:2"
+}
+audio_output {
+    type                    "fifo"
+    name                    "my_fifo"
+    path                    "/tmp/mpd.fifo"
+    format                  "48000:16:2"
+}
+
+audio_output {
+    type        "httpd"
+    name        "luksamuk mpd stream"
+    enabled     "no"
+    encoder     "vorbis"
+    port        "8001"
+    bitrate     "128"
+    format      "44100:16:1"
+    max_clients "0"
+}

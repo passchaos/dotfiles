@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/lucas/Documents/Git/dotfiles/vim/dotvim'
+let g:netrw_dirhist_2='/home/lucas/.local/share/bmpanel2/themes'
+let g:netrw_dirhist_3='/home/lucas/.config/nautilus'
+let g:netrw_dirhist_4='/home/lucas/OficinaAndroidify/OficinaAndroidify'
+let g:netrw_dirhist_5='/home/lucas/Documents/Git/BasicPlatformer/BasicPlatformer/assets'
+let g:netrw_dirhist_6='/home/lucas/.vim'
+let g:netrw_dirhist_7='/home/lucas/.vim/ftplugin/lisp/limp'
+let g:netrw_dirhist_8='/home/lucas/.vim'

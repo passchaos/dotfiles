@@ -1,0 +1,99 @@
+theme
+        name purewinecyan
+        author luksamuk
+
+panel
+        position top
+        background tile.png
+		align left
+		width 60%
+		
+desktop_switcher
+        idle
+                left_corner tile.png
+                left tile.png
+                center tile.png
+                right tile.png
+                right_corner >>.png
+                font Terminess Powerline 9
+                        color 163 158 152
+                        offset 0 0
+                        align center
+
+        pressed
+                left_corner active.png
+                left active.png
+                center tile.png
+                right tile.png
+                right_corner >>.png
+                font Terminess Powerline 9
+                        color 91 196 191
+                        offset 0 0
+                        align center
+
+launchbar
+        icon_size 16 16
+
+empty 3
+
+taskbar
+        idle
+                left tile.png
+                center tile.png
+                right tile.png
+                font Terminess Powerline 9
+                        color 47 30 46
+                        offset 0 0
+                        align left
+
+        idle_highlight
+                left tile.png
+                center tile.png
+                right tile.png
+                font Terminess Powerline 9
+                        color 47 30 46
+                        offset 0 0
+                        align left
+
+        pressed
+                left tile.png
+                center tile.png
+                right tile.png
+                font Terminess Powerline 9
+                        color 47 30 46
+                        offset 0 0
+                        align left
+
+        pressed_highlight
+                left tile.png
+                center tile.png
+                right tile.png
+                font Terminess Powerline 9
+                        color 47 30 46
+                        offset 0 0
+                        align left
+
+        task_max_width 200
+
+empty 2
+
+systray
+        icon_size 16 16
+        icon_spacing 2
+        icon_offset 0 0
+
+empty 2
+
+clock
+        background
+                left tile.png
+                center tile.png
+                right tile.png
+        font Terminess Powerline 9
+                color 163 158 152
+                offset 0 0
+                align center
+
+        time_format  >> %a, %d %b %y, %T
+
+empty 2

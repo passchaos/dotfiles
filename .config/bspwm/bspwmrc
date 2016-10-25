@@ -1,0 +1,101 @@
+#!/bin/sh
+
+# bspwm configuration
+bspc config border_width        1
+bspc config window_gap          15
+
+bspc config split_ratio         0.50
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config single_monocle      true
+
+bspc config left_padding                15
+bspc config right_padding               15
+bspc config bottom_padding              15
+bspc config top_padding                 30
+
+bspc config focus_follows_pointer       false
+bspc config auto_alternate              false
+bspc config auto_cancel                 true
+bspc config normal_private_border_color  "#181512"
+bspc config normal_sticky_border_color   "#181512"
+bspc config normal_locked_border_color   "#181512"
+bspc config focused_locked_border_color  "#A9A2A2"
+bspc config focused_sticky_border_color  "#A9A2A2"
+bspc config focused_private_border_color "#A9A2A2"
+bspc config presel_border_color          "#AC4142"
+
+bspc config normal_private_border_color  "#151515"
+bspc config normal_sticky_border_color   "#151515"
+bspc config normal_locked_border_color   "#151515"
+bspc config focused_locked_border_color  "#303030"
+bspc config focused_sticky_border_color  "#303030"
+bspc config focused_private_border_color "#303030"
+
+bspc config normal_frame_opacity        0.0
+bspc config focused_frame_opacity       0.05
+
+
+# In case of dual screen, I only wish to use HDMI.
+if (xrandr | grep "HDMI-0 connected" > /dev/null) then
+    # Turn off laptop screen and set HDMI to 1080i resolution
+    xrandr --output VGA-0 --off --output LVDS-1 --off --output HDMI-0 --mode 0x2bb
+    # Set metamode as needed to handle that god damn cutoff
+    nvidia-settings --assign CurrentMetaMode="HDMI-0: 1920x1080_60i +0+0 {viewportin=1920x1080, viewportout=1839x1014+40+33}"
+    # Remove LVDS-1
+    bspc wm -r LVDS-1
+    # Set desktops
+    bspc monitor HDMI-0 -d main network media develop play chat misc extra
+else
+    # Just set desktops for our laptop
+    bspc monitor LVDS-1 -d main network media develop play chat misc extra
+fi
+
+# Remove VGA-0 anyway, for some reason NVIDIA creates this.
+# Probably it's related to the Intel sink
+bspc wm -r VGA-0
+
+
+# Some rules
+bspc rule -a Gimp follow=on
+bspc rule -a Skype state=floating follow=on
+bspc rule -a Conky state=sticky manage=off lower=on
+bspc rule -a Orage state=floating
+bspc rule -a Steam state=floating
+bspc rule -a Pidgin state=floating desktop=chat
+bspc rule -a XTerm state=floating
+bspc rule -a Plank layer=above manage=off border=off
+
+# Lemon font on xfontsel
+xset +fp ~/.fonts && xset fp rehash
+
+# Just in case sxhkd doesn't start
+sxhkd &
+
+# Wallpaper, cursor, compositor, top bar
+hsetroot -full /home/lucas/Images/Wallpapers/\(live\).png
+xsetroot -cursor_name left_ptr
+compton &
+bmpanel2 &
+
+# MPD
+mpd &
+mpdscribble &
+
+# Notifications system
+dunst &
+
+# Polkit agent, straight from gnome.
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# System tray icons and etc
+batterymon &
+dropbox &
+redshift-gtk &
+nm-applet &
+pamac-tray &
+volumeicon &
+conky &
+
+#plank &
+#xdotool search --class Plank windowraise &

@@ -1,0 +1,11 @@
+theme pureobsidiancyan
+monitor 0
+
+mbutton1 use drag
+mbutton2 kill
+mbutton3
+launchbar
+
+preferred_alternatives
+pager_current_monitor_only
+clock_prog evolution

@@ -15,8 +15,8 @@ Xcursor.theme: Windows8-cursor
 ! Color theme: Luksamuks (inactive)
 !=============
 ! black
-!#define _color0  #000000
-!#define _color8  #373B41
+#define _color0  #000000
+#define _color8  #373B41
 ! red
 !#define _color1  #A54242
 !#define _color9  #CC6666
@@ -48,8 +48,8 @@ Xcursor.theme: Windows8-cursor
 ! Color theme: Wine
 !=============
 ! black
-#define _color0  #2F1E2E
-#define _color8  #776E71
+!#define _color0  #2F1E2E
+!#define _color8  #776E71
 ! red
 #define _color1  #EF6155
 #define _color9  #EF6155
@@ -195,3 +195,11 @@ UXTerm*color6:      _color6
 UXTerm*color14:     _color14
 UXTerm*color7:      _color7
 UXTerm*color15:     _color15
+
+
+
+
+
+! Emacs
+! =====
+Emacs*font: Terminus-9

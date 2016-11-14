@@ -145,6 +145,13 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 
 
+# Other controls
+bindsym XF86Tools exec "xterm -name ncmpcpp -e ncmpcpp"
+bindsym XF86Calculator exec gnome-calculator
+
+# Windows that should float
+for_window [class="XTerm" instance="ncmpcpp"] floating enable
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -1,0 +1,19 @@
+#!/bin/bash
+# Get Synaptics Touchpad input ID
+ID="$(xinput list | grep "Synaptics TouchPad" | awk '{print $6}' | awk -F "=" '{print $2}')"
+
+# Get synaptics touchpad state
+TOUCHPADSTATE="$(xinput list ${ID} | grep "This device is disabled" | awk '{print $4}')"
+
+# Compare for the existence of the variable's content.
+if [ -z ${TOUCHPADSTATE} ]
+then
+	# The device is ENABLED, so we need to DISABLE it
+	xinput disable ${ID}
+	notify-send "Touchpad is now OFF"
+elif [ -n ${TOUCHPADSTATE} ]
+then
+	# the device is DISABLED, so we need to ENABLE it
+	xinput enable ${ID}
+	notify-send "Touchpad is now ON"
+fi

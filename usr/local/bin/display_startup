@@ -3,8 +3,8 @@
 # Setup HDMI display if necessary
 if (xrandr | grep "HDMI-0 connected" > /dev/null) then
 # Turn off laptop screen and set HDMI to 1080i resolution
-    exec xrandr --output VGA-0 --off --output LVDS-1 --off --output HDMI-0 --mode 0x2bb
+    xrandr --output VGA-0 --off --output LVDS-1 --off --output HDMI-0 --mode 0x2bb
     # Set metamode as needed to handle that god damn cutoff
-    exec nvidia-settings --assign CurrentMetaMode="HDMI-0: 1920x1080_60i +0+0 {viewportin=1920x1080, viewportout=1839x1014+40+33}"
+    nvidia-settings --assign CurrentMetaMode="HDMI-0: 1920x1080_60i +0+0 {viewportin=1920x1080, viewportout=1839x1014+40+33}"
 fi
 

@@ -42,3 +42,4 @@ Here are some stuff you should install:
 - Sublime Text 3
 - Theme: Adapta, Icon: Paper
 - Fonts: Lucida Grande, GohuFont, Terminess Powerline
+- thunar

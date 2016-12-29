@@ -150,7 +150,9 @@ bindsym XF86Tools exec "xterm -name ncmpcpp -e ncmpcpp"
 bindsym XF86Calculator exec gnome-calculator
 
 # Windows that should float
-for_window [class="XTerm" instance="ncmpcpp"] floating enable
+#for_window [class="XTerm" instance="ncmpcpp"] floating enable
+#for_window [class="XTerm" instance="/usr/bin/cb_console_runner"] floating enable
+for_window [class="XTerm"] floating enable
 
 
 # reload the configuration file
@@ -168,16 +170,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ccedilla resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym ccedilla resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -200,7 +202,7 @@ bindsym $mod+Control+l exec "i3lock --image=/home/lucas/Images/Wallpapers/Wide/n
 bar {
 		position top
         status_command i3status
-        tray_output primary
+        #tray_output primary
 
 	# Colors - Theme: Lime
 	colors {
@@ -216,7 +218,6 @@ bar {
 }
 
 # Startup apps
-exec display_setup
 exec "xsetroot -cursor_name left_ptr"
 #exec "xrdb -merge /home/lucas/.Xdefaults"
 exec compton
@@ -228,6 +229,9 @@ exec mpdscribble
 exec dunst
 #exec psensor
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id "hsetroot -full /home/lucas/Images/Lain/serial-experiments-lain.jpg"
-#exec --no-startup-id "feh --bg-fill /home/lucas/Images/Wallpapers/Wide/artificialheresa.jpg"
 exec --no-startup-id redshift-gtk
+exec "display_startup && sleep 3"
+exec "sleep 2 && hsetroot -full /home/lucas/Images/Wallpapers/36615_serial_experiments_lain.jpg"
+#exec "sleep 2 && hsetroot -fill /home/lucas/Images/Wallpapers/cyber.jpg"
+exec conky
+exec pamac-tray

@@ -3,14 +3,15 @@
 Xft.antialias: true
 Xft.autohint: 1
 Xft.dpi: 110
+!Xft.dpi: 96
 Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
-Xft.rgba: rgb
+Xft.rgba: rgba
 
 ! Cursor theme
 ! =============
-Xcursor.theme: Windows8-cursor
+Xcursor.theme: Paper
 
 ! Color theme: Luksamuks (inactive)
 !=============
@@ -106,7 +107,7 @@ URxvt.keysym.F11:             perl:fullscreen:switch
 URxvt*depth: 32
 !URxvt.transparent: true
 !URxvt.shading:     20
-URxvt*background:  [90]_colorBG
+URxvt*background:  [85]_colorBG
 URxvt*foreground:  _colorFG
 URxvt*cursorColor: _colorCC
 URxvt*color0:      _color0

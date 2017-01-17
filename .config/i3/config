@@ -14,8 +14,9 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
-#font pango:gohufont 8
-font pango:Terminess Powerline 8
+font pango:Gohu GohuFont 8
+#font pango:xos4\ Terminess\ Powerline 8
+#font xft:xos4\ Terminess\ Powerline 8
 
 # No focus on mouse
 focus_follows_mouse no
@@ -51,7 +52,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+w kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec "dmenu_run -fn xft:Terminess\ Powerline:regular:size=9:antialias=true -nb '#000000' -nf '#ffffff' -sb '#008A9C' -l 0 -p ' ~ >> $ '"
+bindsym $mod+space exec "dmenu_run -fn xft:Gohu\ GohuFont:regular:size=8:antialias=true -nb '#333333' -nf '#ffffff' -sb '#008A9C' -l 0 -p ' ~ >> $ '"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -136,9 +137,9 @@ bindsym $mod+a workspace prev
 bindsym $mod+d workspace next
 
 # Audio keys
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 2%+ && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'gohufont 10' -x 1670 -y 30"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 2%- && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'gohufont 10' -x 1670 -y 30"
-bindsym XF86AudioMute exec "amixer set Master toggle && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'gohufont 10' -x 1670 -y 30"
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 2%+ && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'GohuFont 10' -x 1670 -y 30"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 2%- && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'GohuFont 10' -x 1670 -y 30"
+bindsym XF86AudioMute exec "amixer set Master toggle && dzvol -bg '#000000' -fg '#FFFFFF' -fn 'GohuFont 10' -x 1670 -y 30"
 # MPD controls
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPrev exec mpc prev
@@ -194,7 +195,7 @@ bindsym Print exec scrot
 bindsym $mod+Print exec "scrot -u"
 
 # Lock screen
-bindsym $mod+Control+l exec "i3lock --image=/home/lucas/Images/Wallpapers/Wide/nocircle.png -t -d"
+bindsym $mod+Control+l exec "i3lock --image=/home/lucas/Images/Wallpapers/mountains.png -d -f"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -206,18 +207,19 @@ bar {
 
 	# Colors - Theme: Lime
 	colors {
-		background #000000
+		background #333333
 		statusline #ffffff
-		separator  #888888
+		separator  #333333
         #                   Border   BG       Text
 		focused_workspace   #008A9C  #008A9C  #ffffff
 		active_workspace    #000000  #000000  #ffffff
-		inactive_workspace  #000000  #000000  #888888
+		inactive_workspace  #333333  #333333  #888888
 		urgent_workspace    #c20000  #c20000  #ffffff
 	}
 }
 
 # Startup apps
+exec "setxkbmap br"
 exec "xsetroot -cursor_name left_ptr"
 #exec "xrdb -merge /home/lucas/.Xdefaults"
 exec compton
@@ -231,7 +233,10 @@ exec dunst
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id redshift-gtk
 exec "display_startup && sleep 3"
-exec "sleep 2 && hsetroot -full /home/lucas/Images/Wallpapers/36615_serial_experiments_lain.jpg"
+#exec "sleep 2 && hsetroot -fill /home/lucas/Images/Wallpapers/space1.jpg"
+#exec "sleep 2 && hsetroot -full /home/lucas/Images/Wallpapers/japoronga.jpg"
+#exec "sleep 2 && hsetroot -fill /home/lucas/Images/Wallpapers/Rad\ Wall\ 2.png -brightness -0.35"
+exec "sleep 2 && hsetroot -full /home/lucas/Images/Wallpapers/mountains.png"
 #exec "sleep 2 && hsetroot -fill /home/lucas/Images/Wallpapers/cyber.jpg"
 exec conky
 exec pamac-tray

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PROMPT="URL de Acesso:"
+PROMPT="Navegar ou pesquisar >> "
 REGEX='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-‌​A-Za-z0-9\+&@#/%=~_|‌​]$'
-COMMON="https://\nhttp://\nDuckDuckGo\nFacebook\nTwitter\nNetflix\nInbox\nYouTube\nGitHub\nHackerNews\nInstagram\nWhatsApp"
+COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp"
 
 # If we have a favorite websites file, then run it now
 if [ -f ~/.browser-favorites.sh ] ; then
@@ -29,36 +29,27 @@ URL=`printf "$COMMON" | dmenu -b -fn '-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*
 
 # Switch for default options
 case $URL in
-    "DuckDuckGo")
-        URL="https://duckduckgo.com/" ;;
-    "Facebook")
+    "startpage")
+        URL="https://startpage.com/" ;;
+    "facebook")
         URL="https://facebook.com/" ;;
-    "Twitter")
+    "twitter")
         URL="https://twitter.com/" ;;
-    "Netflix")
+    "netflix")
         URL="https://netflix.com/" ;;
-    "Inbox")
+    "inbox")
         URL="https://inbox.google.com/" ;;
-    "YouTube")
+    "youtube")
         URL="https://youtube.com/" ;;
-    "GitHub")
+    "github")
         URL="https://github.com/" ;;
-    "HackerNews")
+    "hackernews")
         URL="https://news.ycombinator.com/" ;;
-    "Instagram")
+    "instagram")
         URL="https://instagram.com/" ;;
-    "WhatsApp")
+    "whatsapp")
         URL="https://web.whatsapp.com/" ;;
 esac
-
-# Switch for user-created options
-# If it is set...
-if [ -z ${PREFS+x} ] ; then
-    #Check if input is in hash table
-    if test "${PREFS[$URL]+isset}" ; then
-        URL="${PREFS[$URL]}"
-    fi
-fi
 
 
 if [ -z "$URL" ] ; then
@@ -70,11 +61,18 @@ elif [ "$URL" == "https://" ] || [ "$URL" == "http://" ] ; then
 # Check if URL is valid
 elif [[ $URL =~ $REGEX ]] ; then
     echo "Acessando $URL..."
-    notify-send "Acessando $URL..."
+    #notify-send "Acessando $URL..."
     xdg-open $URL
+# Switch for user-created options
+# If it is set...
+elif [ -z ${PREFS+x} ] ; then
+    #Check if input is in hash table
+    if test "${PREFS[$URL]+isset}" ; then
+        URL="${PREFS[$URL]}"
+    fi
 else
     echo "Pesquisando por \"$URL\"..."
     notify-send "Pesquisando por \"$URL\"..."
-    xdg-open "https://duckduckgo.com/?q=$URL"
+    xdg-open "https://www.startpage.com/do/dsearch?query=${URL}&cat=web"
 fi
     

@@ -52,6 +52,15 @@ case $URL in
 esac
 
 
+# Switch for user-created options
+# If it is set...
+if [ ! -z "$URL" ] && [ -z ${PREFS+x} ] ; then
+    #Check if input is in hash table
+    if test "${PREFS[$URL]+isset}" ; then
+        URL="${PREFS[$URL]}"
+    fi
+fi
+
 if [ -z "$URL" ] ; then
     # Do nothing...
     echo "Acesso cancelado."
@@ -63,13 +72,6 @@ elif [[ $URL =~ $REGEX ]] ; then
     echo "Acessando $URL..."
     #notify-send "Acessando $URL..."
     xdg-open $URL
-# Switch for user-created options
-# If it is set...
-elif [ -z ${PREFS+x} ] ; then
-    #Check if input is in hash table
-    if test "${PREFS[$URL]+isset}" ; then
-        URL="${PREFS[$URL]}"
-    fi
 else
     echo "Pesquisando por \"$URL\"..."
     notify-send "Pesquisando por \"$URL\"..."

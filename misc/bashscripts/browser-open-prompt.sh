@@ -2,7 +2,7 @@
 
 PROMPT="Navegar ou pesquisar >> "
 REGEX='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-‌​A-Za-z0-9\+&@#/%=~_|‌​]$'
-COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia"
+COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia\nwolfram"
 
 FONT="-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*-*-*"
 BG="#000000"
@@ -64,6 +64,22 @@ wikipedia_search()
     fi
 }
 
+wolfram_search()
+{
+    PROMPT="Pesquisar no Wolfram|Alpha >> "
+    SEARCH=`printf "[abrir website]" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+
+    if [ -z "$SEARCH" ] ; then
+        echo ""
+    elif [ "$SEARCH" == "[abrir website]" ] ; then
+        echo "https://www.wolframalpha.com/"
+    else
+        notify-send "Pesquisando no Wolfram|Alpha por \"${SEARCH}\"..."
+        SEARCH=${SEARCH//[+]/%2B}
+        SEARCH=${SEARCH//[ ]/+}
+        echo "https://www.wolframalpha.com/input/?i=${SEARCH}"
+    fi
+}
 
 
 # If we have a favorite websites file, then run it now
@@ -113,6 +129,8 @@ case $URL in
         URL="https://web.whatsapp.com/" ;;
     "wikipedia")
         URL="$(wikipedia_search)" ;;
+    "wolfram")
+        URL="$(wolfram_search)" ;;
 esac
 
 

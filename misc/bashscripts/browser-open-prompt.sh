@@ -4,6 +4,34 @@ PROMPT="Navegar ou pesquisar >> "
 REGEX='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-‌​A-Za-z0-9\+&@#/%=~_|‌​]$'
 COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp"
 
+FONT="-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*-*-*"
+BG="#000000"
+FG="#FFFFFF"
+SB="#5E637E"
+
+
+# Predefine functions for suboperations
+youtube_search()
+{
+    PROMPT="Pesquisar no YouTube >> "
+    SEARCH=`printf "[abrir website]" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+
+    if [ -z "$SEARCH" ] ; then
+        echo ""
+    elif [ "$SEARCH" == "[abrir website]" ] ; then
+        echo "https://youtube.com/"
+    else
+        notify-send "Pesquisando no YouTube por \"${SEARCH}\"..."
+        SEARCH=${SEARCH//[+]/%2B}
+        SEARCH=${SEARCH//[ ]/+}
+        echo "https://youtube.com/results?search_query=${SEARCH}"
+    fi
+}
+
+
+
+
+
 # If we have a favorite websites file, then run it now
 if [ -f ~/.browser-favorites.sh ] ; then
     source ~/.browser-favorites.sh
@@ -24,7 +52,7 @@ done
 
 
 # Get access url
-URL=`printf "$COMMON" | dmenu -b -fn '-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#5E637E' -l 0 -p "$PROMPT"`
+URL=`printf "$COMMON" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
 
 
 # Switch for default options
@@ -40,7 +68,7 @@ case $URL in
     "inbox")
         URL="https://inbox.google.com/" ;;
     "youtube")
-        URL="https://youtube.com/" ;;
+        URL="$(youtube_search)" ;;
     "github")
         URL="https://github.com/" ;;
     "hackernews")
@@ -75,6 +103,8 @@ elif [[ $URL =~ $REGEX ]] ; then
 else
     echo "Pesquisando por \"$URL\"..."
     notify-send "Pesquisando por \"$URL\"..."
+    URL=${URL//[+]/%2B}
+    URL=${URL//[ ]/+}
     xdg-open "https://www.startpage.com/do/dsearch?query=${URL}&cat=web"
 fi
     

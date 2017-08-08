@@ -2,7 +2,7 @@
 
 PROMPT="Navegar ou pesquisar >> "
 REGEX='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-‌​A-Za-z0-9\+&@#/%=~_|‌​]$'
-COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp"
+COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia"
 
 FONT="-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*-*-*"
 BG="#000000"
@@ -29,6 +29,40 @@ youtube_search()
 }
 
 
+facebook_search()
+{
+    PROMPT="Pesquisar no Facebook >> "
+    SEARCH=`printf "[abrir website]" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+
+    if [ -z "$SEARCH" ] ; then
+        echo ""
+    elif [ "$SEARCH" == "[abrir website]" ] ; then
+        echo "https://facebook.com/"
+    else
+        notify-send "Pesquisando no Facebook por \"${SEARCH}\"..."
+        SEARCH=${SEARCH//[+]/%2B}
+        SEARCH=${SEARCH//[ ]/+}
+        echo "https://facebook.com/search/top/?q=${SEARCH}"
+    fi
+}
+
+
+wikipedia_search()
+{
+    PROMPT="Pesquisar na Wikipedia >> "
+    SEARCH=`printf "[abrir website]" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+
+    if [ -z "$SEARCH" ] ; then
+        echo ""
+    elif [ "$SEARCH" == "[abrir website]" ] ; then
+        echo "https://wikipedia.org/"
+    else
+        notify-send "Pesquisando na Wikipedia por \"${SEARCH}\"..."
+        SEARCH=${SEARCH//[+]/%2B}
+        SEARCH=${SEARCH//[ ]/+}
+        echo "https://en.wikipedia.org/w/index.php?search=${SEARCH}&title=Special%3ASearch"
+    fi
+}
 
 
 
@@ -60,7 +94,7 @@ case $URL in
     "startpage")
         URL="https://startpage.com/" ;;
     "facebook")
-        URL="https://facebook.com/" ;;
+        URL="$(facebook_search)" ;;
     "twitter")
         URL="https://twitter.com/" ;;
     "netflix")
@@ -77,6 +111,8 @@ case $URL in
         URL="https://instagram.com/" ;;
     "whatsapp")
         URL="https://web.whatsapp.com/" ;;
+    "wikipedia")
+        URL="$(wikipedia_search)" ;;
 esac
 
 

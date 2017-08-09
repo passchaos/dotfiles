@@ -47,6 +47,25 @@ facebook_search()
 }
 
 
+twitter_search()
+{
+    PROMPT="Pesquisar no Twitter >> "
+    SEARCH=`printf "[abrir website]" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+
+    if [ -z "$SEARCH" ] ; then
+        echo ""
+    elif [ "$SEARCH" == "[abrir website]" ] ; then
+        echo "https://twitter.com/"
+    else
+        notify-send "Pesquisando no Twitter por \"${SEARCH}\"..."
+        SEARCH=${SEARCH//[+]/%2B}
+        SEARCH=${SEARCH//[ ]/+}
+        echo "https://twitter.com/search?q=${SEARCH}"
+    fi
+}
+
+
+
 wikipedia_search()
 {
     PROMPT="Pesquisar na Wikipedia >> "
@@ -112,7 +131,7 @@ case $URL in
     "facebook")
         URL="$(facebook_search)" ;;
     "twitter")
-        URL="https://twitter.com/" ;;
+        URL="$(twitter_search)" ;;
     "netflix")
         URL="https://netflix.com/" ;;
     "inbox")

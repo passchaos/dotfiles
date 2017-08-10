@@ -2,12 +2,17 @@
 
 PROMPT="Navegar ou pesquisar >> "
 REGEX='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-‌​A-Za-z0-9\+&@#/%=~_|‌​]$'
-COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia\nwolfram"
+COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia\nwolfram\ncplusplus"
 
 FONT="-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*-*-*"
 BG="#000000"
 FG="#FFFFFF"
 SB="#5E637E"
+
+# If we have a favorite websites file, then run it now
+if [ -f ~/.browser-favorites.sh ] ; then
+    source ~/.browser-favorites.sh
+fi
 
 
 # Predefine functions for suboperations
@@ -83,6 +88,24 @@ wikipedia_search()
     fi
 }
 
+cplusplus_search()
+{
+    PROMPT="Pesquisar no cplusplus (http) >> "
+    SEARCH=`printf "[abrir website]" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+
+    if [ -z "$SEARCH" ] ; then
+        echo ""
+    elif [ "$SEARCH" == "[abrir website]" ] ; then
+        echo "http://cplusplus.com/"
+    else
+        notify-send "Pesquisando no cplusplus por \"${SEARCH}\"..."
+        SEARCH=${SEARCH//[+]/%2B}
+        SEARCH=${SEARCH//[ ]/+}
+        echo "http://cplusplus.com/search.do?q=${SEARCH}"
+    fi
+}
+
+
 wolfram_search()
 {
     PROMPT="Pesquisar no Wolfram|Alpha >> "
@@ -100,29 +123,37 @@ wolfram_search()
     fi
 }
 
+favselect()
+{
+    PROMPT="Favoritos >> "
+    FAVORITES="wtf"
 
-# If we have a favorite websites file, then run it now
-if [ -f ~/.browser-favorites.sh ] ; then
-    source ~/.browser-favorites.sh
-fi
+    for website in "${!PREFS[@]}" ; do
+        FAVORITES="${FAVORITES}\n${website}"
+    done
 
-# If we have a favorite websites file, then read it and append to the hash
-#if [ -f ~/.browser-favs ] ; then
-#    while IFS='' read -r first ; read -r second ; do
-#        PREFS["$first"]="$second" ;
-#    done
-#fi
+    URL=`printf "${FAVORITES}" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
+}
+
+
+
+#Comment if you want to show it on main menu
+COMMON="${COMMON}\nfavorites"
 
 # Also, loop through our favorites list and append them to our commons list
-for website in "${!PREFS[@]}" ; do
-    COMMON="${COMMON}\n${website}" ;
-done
-
-
+# Uncomment if you want to show it on main menu
+#for website in "${!PREFS[@]}" ; do
+#    COMMON="${COMMON}\n${website}" ;
+#done
 
 # Get access url
 URL=`printf "$COMMON" | dmenu -b -fn "$FONT" -nb "$BG" -nf "$FG" -sb "$SB" -l 0 -p "$PROMPT"`
 
+
+# Comment if you're showing favorites on main menu
+if [[ "$URL" == "favorites" ]] ; then
+    favselect
+fi
 
 # Switch for default options
 case $URL in
@@ -150,6 +181,8 @@ case $URL in
         URL="$(wikipedia_search)" ;;
     "wolfram")
         URL="$(wolfram_search)" ;;
+    "cplusplus")
+        URL="$(cplusplus_search)" ;;
 esac
 
 

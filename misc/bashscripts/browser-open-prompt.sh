@@ -2,7 +2,7 @@
 
 PROMPT="Navegar ou pesquisar >> "
 REGEX='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-‌​A-Za-z0-9\+&@#/%=~_|‌​]$'
-COMMON="https://\nhttp://\nstartpage\nfacebook\ntwitter\nnetflix\ninbox\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia\nwolfram\ncplusplus"
+COMMON="https://\nhttp://\nstartpage\ntwitter\nnetflix\nprotonmail\nyoutube\ngithub\nhackernews\ninstagram\nwhatsapp\nwikipedia\nwolfram\ncplusplus"
 
 FONT="-lucy-tewi-medium-r-normal-*-11-90-*-*-*-*-*-*"
 BG="#000000"
@@ -159,14 +159,14 @@ fi
 case $URL in
     "startpage")
         URL="https://startpage.com/" ;;
-    "facebook")
-        URL="$(facebook_search)" ;;
+    #"facebook")
+    #    URL="$(facebook_search)" ;;
     "twitter")
         URL="$(twitter_search)" ;;
     "netflix")
         URL="https://netflix.com/" ;;
-    "inbox")
-        URL="https://inbox.google.com/" ;;
+    "protonmail")
+        URL="https://mail.protonmail.com/login" ;;
     "youtube")
         URL="$(youtube_search)" ;;
     "github")
